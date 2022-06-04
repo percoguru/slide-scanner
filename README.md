@@ -11,7 +11,7 @@ npm run process
 ## APIs
 - GET `/location`
   - Gets a list of locations the user moved to in order of the user input along with the state at each node
-- POST `/key-storke`
+- POST `/key-stroke`
   - Adds a movement to the camera's path
   - body 
     ```
