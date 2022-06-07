@@ -6,6 +6,9 @@ const {
   addToPath,
 } = require("../storage/index");
 
+const HEIGHT = 50;
+const WIDTH = 150;
+
 const router = express.Router({ mergeParams: true });
 
 const keyStrokeDirections = {
@@ -34,6 +37,11 @@ const addKeyStroke = async (req, res, next) => {
       getCoordinates(lastProcessedLocation),
       direction
     );
+
+    if (newLocation[0] >= HEIGHT || newLocation[1] >= WIDTH) {
+      res.status(200).json({});
+      return;
+    }
 
     const path = await addToPath(newLocation.join("-"));
 
